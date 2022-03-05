@@ -10,7 +10,7 @@ public class Max implements HeaterState
     thread = new Thread(()->{
       try
       {
-        Thread.sleep(40000);
+        Thread.sleep(10000);
         heater.setPowerState(heater.getMedium());
       }
       catch (InterruptedException e)
