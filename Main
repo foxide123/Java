@@ -1,0 +1,36 @@
+import Heater.Heater;
+import Thermometer.Thermometer;
+import Thermometer.Thermometer2;
+
+public class Main
+{
+  public static void main(String[] args) throws InterruptedException
+  {
+    Heater heater = new Heater();
+    heater.turnUp();
+    heater.turnUp();
+    heater.turnUp();
+    System.out.println(heater.getPower());
+    Thread.sleep(11000);
+    System.out.println(heater.getPower());
+    heater.turnDown();
+    System.out.println(heater.getPower());
+    heater.turnDown();
+    System.out.println(heater.getPower());
+    heater.turnDown();
+    System.out.println(heater.getPower());
+    heater.turnUp();
+    System.out.println(heater.getPower());
+    heater.turnUp();
+    System.out.println(heater.getPower());
+
+    Thermometer thermometer = new Thermometer(heater);
+    Thermometer2 thermometer2 = new Thermometer2(heater);
+
+    Thread t1 = new Thread(thermometer);
+    Thread t2 = new Thread(thermometer2);
+
+    t1.start();
+    t2.start();
+  }
+}
