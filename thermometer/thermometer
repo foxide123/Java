@@ -6,6 +6,9 @@ public class Thermometer implements Runnable
 {
    Heater heater;
 
+  private static final int HOT = 15;
+  private static final int COLD = -10;
+
    public Thermometer(Heater heater)
    {
      this.heater = heater;
@@ -24,14 +27,55 @@ public class Thermometer implements Runnable
     return t;
   }
 
+  public String temperatureWarning(String t)
+  {
+     switch(t){
+       case "HOT":
+         System.out.println("Warning (thermometer1), temperature too Hot. TURN HEATER DOWN");
+       case "COLD":
+         System.out.println("Warning (thermometer1), temperature too Cold. TURN HEATER UP");
+     }
+     return null;
+  }
+
   public void run()
   {
-    //model manager , observer pattern
       double t=0;
-      for(int i=0; i<5; i++){
+      for(;;){
+        // sleep for 1 sec so that we see changes in temperature
+        try
+        {
+          Thread.sleep(1000);
+        }
+        catch (InterruptedException e)
+        {
+          e.printStackTrace();
+        }
          int x = 4+ (int)(Math.random()*((8-4)+1));
          t = this.temperature(t, heater.getPower(), 1,-5,x);
-        System.out.println(t);
+        System.out.println("thermometer 1:" + t);
+        if(t>=HOT){
+          this.temperatureWarning("HOT");
+          //additional sleep for 5 sec so that temperature rise/sink slower
+          try
+          {
+            Thread.sleep(5000);
+          }
+          catch (InterruptedException e)
+          {
+            e.printStackTrace();
+          }
+        }else if(t<=COLD){
+          this.temperatureWarning("COLD");
+          try
+          {
+            Thread.sleep(5000);
+          }
+          catch (InterruptedException e)
+          {
+            e.printStackTrace();
+          }
+        }
       }
 
   }
