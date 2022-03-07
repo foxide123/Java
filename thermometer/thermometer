@@ -4,7 +4,12 @@ import Heater.Heater;
 
 public class Thermometer implements Runnable
 {
-  private Heater heater;
+   Heater heater;
+
+   public Thermometer(Heater heater)
+   {
+     this.heater = heater;
+   }
 
   public double temperature(double t, int p, int d, double t0, int s) {
     double tMax = Math.min(11 * p + 10, 11 * p + 10 + t0);
@@ -23,9 +28,10 @@ public class Thermometer implements Runnable
   {
     //model manager , observer pattern
       double t=0;
-      for(;;){
+      for(int i=0; i<5; i++){
          int x = 4+ (int)(Math.random()*((8-4)+1));
-         t = this.temperature(t, heater.getPower(),1,-5,x);
+         t = this.temperature(t, heater.getPower(), 1,-5,x);
+        System.out.println(t);
       }
 
   }
