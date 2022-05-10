@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignUpView">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FED700;">
+         <children>
+            <ImageView fitHeight="165.0" fitWidth="201.0" layoutX="9.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/bob.png" />
+               </image>
+               <effect>
+                  <Blend />
+               </effect>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="430.0" prefWidth="478.0">
+         <children>
+            <Label layoutX="72.0" layoutY="78.0" text="Email" />
+            <Label layoutX="61.0" layoutY="117.0" text="Password" />
+            <TextField fx:id="tf_email" layoutX="134.0" layoutY="74.0" />
+            <TextField fx:id="tf_password" layoutX="134.0" layoutY="113.0" />
+            <RadioButton fx:id="radioButtonShow" layoutX="97.0" layoutY="476.0" mnemonicParsing="false" text="Show_contact" />
+            <Button layoutX="173.0" layoutY="516.0" mnemonicParsing="false" onAction="#onSignUp" text="Signup" />
+            <RadioButton fx:id="radioButtonHide" layoutX="229.0" layoutY="476.0" mnemonicParsing="false" text="Hide_contact" />
+            <Button layoutX="337.0" layoutY="20.0" mnemonicParsing="false" onAction="#onLogIn" text="Log in" />
+            <Label layoutX="150.0" layoutY="33.0" text="Handyman SignUp" />
+            <Label layoutX="75.0" layoutY="159.0" text="CVR" />
+            <Label layoutX="57.0" layoutY="198.0" text="First Name" />
+            <Label layoutX="58.0" layoutY="237.0" text="Last Name" />
+            <TextField layoutX="134.0" layoutY="155.0" />
+            <TextField layoutX="134.0" layoutY="194.0" />
+            <TextField layoutX="135.0" layoutY="233.0" />
+            <TextField layoutX="135.0" layoutY="277.0" />
+            <Label layoutX="46.0" layoutY="281.0" text="Phone Number" />
+            <Label layoutX="35.0" layoutY="323.0" text="Working Area" />
+            <Label layoutX="43.0" layoutY="364.0" text="Description" />
+            <Label layoutX="61.0" layoutY="396.0" text="Skills" />
+            <Label layoutX="53.0" layoutY="427.0" text="Hourly Rate" />
+            <ChoiceBox fx:id="choiceBox" layoutX="130.0" layoutY="318.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
